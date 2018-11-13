@@ -1,0 +1,15 @@
+.Buttons {
+  margin: auto;
+  width: 300px;
+  text-align: center;
+}
+
+.UpvoteButton {
+  font-size: 50px;
+  margin: 15px;
+}
+
+.DownvoteButton {
+  font-size: 50px;
+  margin: 15px;
+}

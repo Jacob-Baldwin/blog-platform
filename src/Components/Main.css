@@ -1,0 +1,9 @@
+.Main {
+  position: absolute;
+  top: 120px;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  background-image: linear-gradient(pink, white);
+  height: 100%;
+}
