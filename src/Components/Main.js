@@ -1,8 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Slideshow from './Slideshow';
-import Overview from './Overview';
-import SubmitForm from './SubmitForm';
 
 import styles from './Main.css'
 
@@ -14,9 +11,6 @@ import styles from './Main.css'
 const Main = () => (
   <main className="Main">
     <Switch>
-      <Route exact path='/' component={Slideshow}/>
-      <Route path='/overview' component={Overview}/>
-      <Route path='/submit' component={SubmitForm}/>
     </Switch>
   </main>
 )

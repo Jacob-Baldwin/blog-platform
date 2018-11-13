@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var fileupload = require('express-fileupload');
 
 var index = require('./routes/index');
-var users = require('./routes/api');
+// var users = require('./routes/api');
 
 var app = express();
 
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileupload());
 
-app.use('/api', users);
+// app.use('/api', users);
 
 app.use(express.static('build'));
 
