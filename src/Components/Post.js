@@ -41,13 +41,6 @@ class Post extends React.Component {
   }
 
   render() {
-    // let i = 0;
-    // let persons = this.state.persons.map((p) => {
-    //   i = i + 1;
-    //   return (<PersonCard person={p} ranking={i}/>)
-    // });
-
-
     var display = <div>
       <h1>{this.state.post_title}</h1>
       <ReactMarkdown source={this.state.post_text}/>
