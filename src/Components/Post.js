@@ -2,15 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown'
 
-import styles from './Posts.css';
-import Post from './Post';
+import styles from './Post.css';
 
-class Posts extends React.Component {
+class Post extends React.Component {
   constructor() {
     super();
     this.state = {
       persons: [],
-      post_text: '# This is a header\n\nAnd this is a paragraph'
+      post_text: '# This is a header\n\nAnd this is a paragraph',
+      editing: false
     };
   }
 
@@ -47,14 +47,25 @@ class Posts extends React.Component {
     //   return (<PersonCard person={p} ranking={i}/>)
     // });
 
+
+    var display = <div>
+      <ReactMarkdown source={this.state.post_text}/>
+      <button onClick={() => {this.setState({editing:true})}}>Edit</button>
+    </div>
+
+    var edit = <div>
+      <textarea onChange={(e) => {this.setState({post_text: e.target.value})}} value={this.state.post_text}/>
+      <button onClick={() => {this.setState({editing:false})}}>Done</button>
+    </div>
+
     return (
       <div>
-        Posts
-        <Post/>
+        Post
+        {this.state.editing?edit:display}
       </div>
     )
   }
 
 }
 
-export default Posts
+export default Post
