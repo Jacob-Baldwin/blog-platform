@@ -9,35 +9,27 @@ class Posts extends React.Component {
   constructor() {
     super();
     this.state = {
-      persons: [],
-      post_text: '# This is a header\n\nAnd this is a paragraph'
+      posts: []
     };
   }
 
   componentDidMount() {
     let self = this;
 
-    // axios.get('/api/persons')
-    // .then(function (response) {
+    axios.get('/api/posts')
+      .then(function (response) {
 
-    //   let sorted_persons = response.data;
+        let posts = response.data;
 
-    //   sorted_persons.sort((a,b) => {
-    //     a.score = a.upvotes - a.downvotes;
-    //     b.score = b.upvotes - b.downvotes;
+        self.setState({
+          posts: posts
+        });
 
-    //     return (b.score - a.score);
-    //   })
-
-    //   self.setState({
-    //     persons: sorted_persons
-    //   });
-
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    //   throw error;
-    // });
+      })
+      .catch(function (error) {
+        console.log(error);
+        throw error;
+      });
   }
 
   render() {
@@ -50,7 +42,7 @@ class Posts extends React.Component {
     return (
       <div>
         Posts
-        <Post/>
+        <Post post={{title:"lol", body:"lol"}}/>
       </div>
     )
   }

@@ -14,10 +14,10 @@ else {
 }
 
 var postSchema = mongoose.Schema({
-  Title: String,
-  Body: String,
-  DatePosted: String,
-  DateModified: String
+  title: String,
+  body: String,
+  dateposted: String,
+  datemodified: String
 });
 
 var Post = mongoose.model('Post', postSchema);

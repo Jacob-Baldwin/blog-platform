@@ -8,42 +8,47 @@ class Post extends React.Component {
   constructor() {
     super();
     this.state = {
-      post_title: "Title",
-      post_text: '# This is a header\n\nAnd this is a paragraph',
+      post: {
+        body: "",
+        title: ""
+      },
       editing: false
     };
   }
 
   componentDidMount() {
     let self = this;
+    this.setState({
+      post: this.props.post
+    })
+  }
 
-    // axios.get('/api/persons')
-    // .then(function (response) {
+  editTitle(e) {
+    let p = this.state.post;
 
-    //   let sorted_persons = response.data;
+    p = {
+      ...p,
+      title: e.target.value
+    }
 
-    //   sorted_persons.sort((a,b) => {
-    //     a.score = a.upvotes - a.downvotes;
-    //     b.score = b.upvotes - b.downvotes;
+    this.setState({post: p})
+  }
 
-    //     return (b.score - a.score);
-    //   })
+  editBody(e) {
+    let p = this.state.post;
 
-    //   self.setState({
-    //     persons: sorted_persons
-    //   });
+    p = {
+      ...p,
+      body: e.target.value
+    }
 
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    //   throw error;
-    // });
+    this.setState({post: p})
   }
 
   render() {
     var display = <div>
-      <h1>{this.state.post_title}</h1>
-      <ReactMarkdown source={this.state.post_text}/>
+      <h1>{this.state.post.title}</h1>
+      <ReactMarkdown source={this.state.post.body}/>
       <button onClick={() => {this.setState({editing:true})}}>Edit</button>
     </div>
 
@@ -51,16 +56,16 @@ class Post extends React.Component {
       <div>
         <input
           type="text"
-          value={this.state.post_title}
-          onChange={(e) => {this.setState({post_title: e.target.value})}}
+          value={this.state.post.title}
+          onChange={this.editTitle.bind(this)}
           />
       </div>
 
       <div>
 
         <textarea className="EditPostText"
-          onChange={(e) => {this.setState({post_text: e.target.value})}}
-          value={this.state.post_text}
+          onChange={this.editBody.bind(this)}
+          value={this.state.post.body}
           />
 
       </div>
