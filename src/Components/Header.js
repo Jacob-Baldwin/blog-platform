@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom'
 
 const Header = () => (
   <div className="Header">
-    <h1>Blog Title</h1>
-    <Link to="/" className="Link">Browse Matches</Link>
-    <Link to="/overview" className="Link">Hottest Profiles</Link>
-    <Link to="/submit" className="Link">Submit Your Profile</Link>
+    <h1>Lost In The Sauce</h1>
+    <Link to="/" className="Link">Home</Link>
+    <Link to="/about" className="Link">About Me</Link>
   </div>
 )
 

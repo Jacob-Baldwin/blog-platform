@@ -8,7 +8,7 @@ class Post extends React.Component {
   constructor() {
     super();
     this.state = {
-      persons: [],
+      post_title: "Title",
       post_text: '# This is a header\n\nAnd this is a paragraph',
       editing: false
     };
@@ -49,12 +49,29 @@ class Post extends React.Component {
 
 
     var display = <div>
+      <h1>{this.state.post_title}</h1>
       <ReactMarkdown source={this.state.post_text}/>
       <button onClick={() => {this.setState({editing:true})}}>Edit</button>
     </div>
 
     var edit = <div>
-      <textarea onChange={(e) => {this.setState({post_text: e.target.value})}} value={this.state.post_text}/>
+      <div>
+        <input
+          type="text"
+          value={this.state.post_title}
+          onChange={(e) => {this.setState({post_title: e.target.value})}}
+          />
+      </div>
+
+      <div>
+
+        <textarea className="EditPostText"
+          onChange={(e) => {this.setState({post_text: e.target.value})}}
+          value={this.state.post_text}
+          />
+
+      </div>
+
       <button onClick={() => {this.setState({editing:false})}}>Done</button>
     </div>
 
