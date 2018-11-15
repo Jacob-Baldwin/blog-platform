@@ -9,7 +9,7 @@ class NewPost extends React.Component {
     super();
     this.state = {
       post: {
-        body: "Body",
+        body: "Write your posts in markdown.\n\nFor example: [This](http://www.zombo.com/) is a link.\n\n# This is a heading.\n\nYou can learn more about markdown [here](https://commonmark.org/help/).\n\nEdit the post on the left and see a preview of the post on the right.\n\nThen when you're done, press submit to publish the post for the world to see.",
         title: "Title",
         dateposted: (new Date()).toISOString(),
         datemodified: (new Date()).toISOString()
