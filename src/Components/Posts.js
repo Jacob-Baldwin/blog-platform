@@ -3,13 +3,12 @@ import axios from 'axios';
 import ReactMarkdown from 'react-markdown'
 
 import styles from './Posts.css';
-import Post from './Post';
 
 class Posts extends React.Component {
   constructor() {
     super();
     this.state = {
-      posts: []
+      posts: {}
     };
   }
 
@@ -25,6 +24,8 @@ class Posts extends React.Component {
           posts: posts
         });
 
+        console.log(posts);
+
       })
       .catch(function (error) {
         console.log(error);
@@ -33,16 +34,23 @@ class Posts extends React.Component {
   }
 
   render() {
-    // let i = 0;
-    // let persons = this.state.persons.map((p) => {
-    //   i = i + 1;
-    //   return (<PersonCard person={p} ranking={i}/>)
-    // });
+    var render_post = (p) => {
+      return(
+        <div>
+          <h1>{p.title}</h1>
+          <ReactMarkdown source={p.body}/>
+        </div>
+      );
+    }
+
+    let posts = Object.keys(this.state.posts).map((key, index) => {
+      return (render_post(this.state.posts[key]))
+    });
 
     return (
       <div>
         Posts
-        <Post post={{title:"lol", body:"lol"}}/>
+        {posts}
       </div>
     )
   }

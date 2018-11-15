@@ -2,15 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown'
 
-import styles from './Post.css';
+import styles from './NewPost.css';
 
-class Post extends React.Component {
+class NewPost extends React.Component {
   constructor() {
     super();
     this.state = {
       post: {
-        body: "",
-        title: ""
+        body: "Body",
+        title: "Title"
       },
       editing: false
     };
@@ -18,9 +18,6 @@ class Post extends React.Component {
 
   componentDidMount() {
     let self = this;
-    this.setState({
-      post: this.props.post
-    })
   }
 
   editTitle(e) {
@@ -46,10 +43,9 @@ class Post extends React.Component {
   }
 
   render() {
-    var display = <div>
+    var display = <div className="DisplayText">
       <h1>{this.state.post.title}</h1>
       <ReactMarkdown source={this.state.post.body}/>
-      <button onClick={() => {this.setState({editing:true})}}>Edit</button>
     </div>
 
     var edit = <div>
@@ -70,17 +66,21 @@ class Post extends React.Component {
 
       </div>
 
-      <button onClick={() => {this.setState({editing:false})}}>Done</button>
     </div>
 
     return (
       <div>
-        Post
-        {this.state.editing?edit:display}
+        New Post
+        <div className="Editor">
+          {edit}
+        </div>
+        <div className="Preview">
+          {display}
+        </div>
       </div>
     )
   }
 
 }
 
-export default Post
+export default NewPost;

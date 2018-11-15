@@ -1,0 +1,27 @@
+.EditPostText {
+  width: 90%;
+  min-height: 500px;
+  height: 90%;
+}
+
+.DisplayText {
+  width: 90%;
+  height: 90%;
+  word-wrap: break-word;
+}
+
+.Editor {
+  width: 30%;
+  position: fixed;
+  left: 15%;
+  border: 1px;
+  border-style: solid;
+  height: 60%;
+}
+
+.Preview {
+  width: 30%;
+  position: fixed;
+  right: 15%;
+  border: 1px;
+}
