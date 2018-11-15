@@ -10,7 +10,9 @@ class NewPost extends React.Component {
     this.state = {
       post: {
         body: "Body",
-        title: "Title"
+        title: "Title",
+        dateposted: (new Date()).toISOString(),
+        datemodified: (new Date()).toISOString()
       },
       editing: false
     };
@@ -18,6 +20,19 @@ class NewPost extends React.Component {
 
   componentDidMount() {
     let self = this;
+  }
+
+  submitPost() {
+    let self = this;
+
+    axios.post('/api/posts/new', this.state.post)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+      throw error;
+    });
   }
 
   editTitle(e) {
@@ -70,9 +85,9 @@ class NewPost extends React.Component {
 
     return (
       <div>
-        New Post
         <div className="Editor">
           {edit}
+          <button onClick={this.submitPost.bind(this)}>Submit</button>
         </div>
         <div className="Preview">
           {display}

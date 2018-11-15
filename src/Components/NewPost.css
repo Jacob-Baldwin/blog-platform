@@ -12,16 +12,13 @@
 
 .Editor {
   width: 30%;
-  position: fixed;
+  position: absolute;
   left: 15%;
-  border: 1px;
-  border-style: solid;
   height: 60%;
 }
 
 .Preview {
   width: 30%;
-  position: fixed;
+  position: absolute;
   right: 15%;
-  border: 1px;
 }

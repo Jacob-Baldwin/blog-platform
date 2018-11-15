@@ -39,6 +39,7 @@ class Posts extends React.Component {
         <div>
           <h1>{p.title}</h1>
           <ReactMarkdown source={p.body}/>
+          <p className="Footnote">Last Modified: {Date(p.datemodified)}</p>
         </div>
       );
     }
