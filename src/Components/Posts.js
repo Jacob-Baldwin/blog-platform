@@ -36,7 +36,7 @@ class Posts extends React.Component {
   render() {
     var render_post = (p) => {
       return(
-        <div>
+        <div className="Post">
           <h1>{p.title}</h1>
           <ReactMarkdown source={p.body}/>
           <p className="Footnote">Last Modified: {Date(p.datemodified)}</p>

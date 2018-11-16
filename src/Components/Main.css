@@ -1,11 +1,11 @@
 .Main {
-  position: absolute;
-  top: 160px;
+  position: relative;
+  top: 180px;
   margin: auto;
   left: 0px;
   right: 0px;
-  background-image: linear-gradient(pink, white);
   height: 100%;
   text-align: center;
   align-content: center;
+  margin-top: 10px;
 }
