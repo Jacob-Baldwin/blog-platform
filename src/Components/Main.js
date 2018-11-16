@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Posts from './Posts';
 import NewPost from './NewPost';
+import About from './About';
 
 import styles from './Main.css'
 
@@ -15,6 +16,7 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={Posts}/>
       <Route path='/new' component={NewPost}/>
+      <Route path='/about' component={About}/>
     </Switch>
   </main>
 )

@@ -49,8 +49,7 @@ class Posts extends React.Component {
     });
 
     return (
-      <div>
-        Posts
+      <div className="Posts">
         {posts}
       </div>
     )

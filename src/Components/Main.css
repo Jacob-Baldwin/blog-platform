@@ -6,4 +6,6 @@
   right: 0px;
   background-image: linear-gradient(pink, white);
   height: 100%;
+  text-align: center;
+  align-content: center;
 }
